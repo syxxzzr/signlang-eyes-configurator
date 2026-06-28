@@ -15,6 +15,9 @@ export type DeviceNoticeKind = 'info' | 'success' | 'error'
 const RECORDING_COUNTDOWN_MS = 5000
 const RECORDING_COUNTDOWN_TICK_MS = 8
 
+// Recognition results are momentary — drop them if no fresh result arrives.
+const RECOGNITION_TTL_MS = 1000
+
 export function useSignlangDevice() {
   const { t } = useI18n()
   const supported = SignlangClient.isSupported()
@@ -46,6 +49,7 @@ export function useSignlangDevice() {
   let frameTimestamps: number[] = []
   let recordingCountdownTimer: ReturnType<typeof setTimeout> | null = null
   let recordingCountdownEndsAt = 0
+  let recognitionExpiryTimer: ReturnType<typeof setTimeout> | null = null
 
   const recordingSessionActive = computed(
     () => recordingPreparing.value || recording.value,
@@ -58,6 +62,22 @@ export function useSignlangDevice() {
   const recordingCountdownProgress = computed(() =>
     Math.max(0, Math.min(1, recordingCountdownMs.value / RECORDING_COUNTDOWN_MS)),
   )
+
+  function clearRecognitionExpiry() {
+    if (recognitionExpiryTimer) {
+      clearTimeout(recognitionExpiryTimer)
+      recognitionExpiryTimer = null
+    }
+  }
+
+  function setRecognition(result: RecognitionResult) {
+    recognition.value = result
+    clearRecognitionExpiry()
+    recognitionExpiryTimer = setTimeout(() => {
+      recognition.value = null
+      recognitionExpiryTimer = null
+    }, RECOGNITION_TTL_MS)
+  }
 
   function pushNotice(kind: DeviceNoticeKind, title: string, message?: string) {
     if (kind === 'error') error.value = message || title
@@ -77,6 +97,7 @@ export function useSignlangDevice() {
     gestures.value = []
     frame.value = null
     recognition.value = null
+    clearRecognitionExpiry()
     fps.value = 0
     cancelRecordingCountdown()
     recording.value = false
@@ -88,7 +109,7 @@ export function useSignlangDevice() {
   const client = new SignlangClient({
     onHandpose(f, raw, result) {
       frame.value = f
-      if (result) recognition.value = result
+      if (result) setRecognition(result)
       const now = performance.now()
       frameTimestamps.push(now)
       const cutoff = now - 1000
