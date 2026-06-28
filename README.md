@@ -6,6 +6,18 @@
 
 智能手语眼镜配置工具 (SignLang Eyes Configurator) 是一个基于 Vue3 及 Web Bluetooth 的手语识别设备配置台。它用于通过蓝牙连接 [智能手语眼镜](https://github.com/syxxzzr/signlang-eyes) 设备，查看实时手部关键点流、展示识别结果、录制手势样本，并管理设备端手势库
 
+> [![第九届全国大学生嵌入式芯片与系统设计竞赛](src/assets/race_sign.png)](https://www.socchina.net/)
+
+> 本项目是为第九届[全国大学生嵌入式芯片与系统设计竞赛](https://www.socchina.net/)参赛作品 `基于RK3588的智能实时手语翻译和危险声音预警系统` 设计的智能手语眼镜配置工具，主要用于与智能眼镜设备进行蓝牙通讯，实现实时查看手语识别结果与动态增加/删除手语的功能
+
+> 本分支专为第九届[全国大学生嵌入式芯片与系统设计竞赛](https://www.socchina.net/)参赛作品 `基于RK3588的智能实时手语翻译和危险声音预警系统` 做了UI微调，与 `master` 分支仅有UI与说明文档上的细微区别
+
+> 第九届[全国大学生嵌入式芯片与系统设计竞赛](https://www.socchina.net/)参赛作品 `基于RK3588的智能实时手语翻译和危险声音预警系统` 设备端代码同样完全开源，仓库地址位于 [https://github.com/syxxzzr/signlang-eyes](https://github.com/syxxzzr/signlang-eyes)
+
+> 你可以通过以下链接访问我们部署在 Cloudflare Pages 服务下的 Demo
+> - [https://signlang-eyes-configurator.soc-race.syxxzzr.eu.org](https://signlang-eyes-configurator.soc-race.syxxzzr.eu.org)
+> - [https://signlang-eyes-configurator.pages.dev](https://signlang-eyes-configurator.pages.dev)
+
 ## 本地开发
 
 本项目使用 `pnpm` 作为包管理工具，因此开发环境中需要安装好 `pnpm`

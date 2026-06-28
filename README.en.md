@@ -8,6 +8,18 @@ SignLang Eyes Configurator is a configuration console for the SignLang Eyes gest
 
 It enables users to connect to the [SignLang Eyes](https://github.com/syxxzzr/signlang-eyes) device via Bluetooth, view real-time hand landmark streams, display recognition results, record gesture samples, and manage the on-device gesture library
 
+> [![9th National College Student Embedded Chip and System Design Competition](src/assets/race_sign.png)](https://www.socchina.net/)
+
+> This project is a configuration tool for the Smart Sign Language Glasses, developed for the entry `RK3588-Based Sign Language Translation and Sound Alert System` in the 9th [National College Student Embedded Chip and System Design Competition](https://www.socchina.net/). It communicates with the smart glasses via Bluetooth, enabling real-time display of sign language recognition results and dynamic addition or removal of sign language gestures
+
+> This branch contains minor UI refinements specifically for the 9th [National College Student Embedded Chip and System Design Competition](https://www.socchina.net/) entry `RK3588-Based Sign Language Translation and Sound Alert System`. Compared with the master branch, the only differences are small UI adjustments and documentation updates
+
+> The device-side code for the 9th [National College Student Embedded Chip and System Design Competition](https://www.socchina.net/) entry `RK3588-Based Sign Language Translation and Sound Alert System` is also fully open source. The repository is available at: [https://github.com/syxxzzr/signlang-eyes](https://github.com/syxxzzr/signlang-eyes)
+
+> You can access our Demo, which is deployed under the Cloudflare Pages service, via the following link:
+> - [https://signlang-eyes-configurator.soc-race.syxxzzr.eu.org](https://signlang-eyes-configurator.soc-race.syxxzzr.eu.org)
+> - [https://signlang-eyes-configurator.pages.dev](https://signlang-eyes-configurator.pages.dev)
+
 ## Local Development
 
 This project uses `pnpm` as its package manager. Please make sure `pnpm` is installed in your development environment before getting started

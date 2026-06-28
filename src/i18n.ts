@@ -4,7 +4,7 @@ export const messages = {
   'zh-CN': {
     app: {
       title: '智能手语眼镜配置工具',
-      subtitle: '实时手势监视、样本录制与设备手势库管理',
+      subtitle: '基于RK3588的智能实时手语翻译和危险声音预警系统',
     },
     common: {
       connected: '已连接',
@@ -114,7 +114,7 @@ export const messages = {
   'en-US': {
     app: {
       title: 'SignLang Eyes Configurator',
-      subtitle: 'Monitor live hands, record samples, and manage the gesture library',
+      subtitle: 'RK3588-Based Sign Language Translation and Sound Alert System',
     },
     common: {
       connected: 'Connected',

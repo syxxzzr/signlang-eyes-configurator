@@ -26,6 +26,7 @@ import {
 import { useSignlangDevice } from '@/composables/useSignlangDevice'
 import { usePreferencesStore } from '@/stores/preferences'
 import HandposeCanvas from '@/components/HandposeCanvas.vue'
+import raceSignLogo from '@/assets/race_sign.png'
 import type { GestureInfo } from '@/ble/protocol'
 import {
   accentOptionKeys,
@@ -207,6 +208,11 @@ function onDelete(g: GestureInfo) {
                 </Badge>
               </div>
             </div>
+            <img
+              :src="raceSignLogo"
+              alt="Race Sign"
+              class="hidden h-16 w-auto shrink-0 object-contain sm:block"
+            />
           </div>
 
           <div class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:justify-end">
@@ -667,19 +673,31 @@ function onDelete(g: GestureInfo) {
           class="flex flex-wrap items-center justify-center gap-2 border-t border-border pt-4"
         >
           <a
-            href="https://github.com/syxxzzr/signlang-eyes-configurator"
+            href="https://www.socchina.net"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="全国大学生嵌入式芯片与系统设计竞赛"
+          >
+            <img
+              src="https://img.shields.io/badge/%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%B5%8C%E5%85%A5%E5%BC%8F%E8%8A%AF%E7%89%87%E4%B8%8E%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B-%E7%91%9E%E8%8A%AF%E5%BE%AE%E8%B5%9B%E9%81%93-blue?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RUY0MjA1NEU2MjE4MTFFOEE3QkRCNjkyNzM3QjlDREMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RUY0MjA1NEQ2MjE4MTFFOEE3QkRCNjkyNzM3QjlDREMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZBODZDOTRGNjBBNTExRTg4MEE1QzYxQkE0QTk0NTQ5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkZBODZDOTUwNjBBNTExRTg4MEE1QzYxQkE0QTk0NTQ5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+GdKmKQAACPBJREFUeNrkV2uMVdUV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"
+              alt="全国大学生嵌入式芯片与系统设计竞赛"
+              class="h-5"
+            >
+          </a>
+          <a
+            href="https://github.com/syxxzzr/signlang-eyes-configurator/tree/special/soc-race"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub repository"
           >
             <img
-              src="https://img.shields.io/badge/GitHub-signlang--eyes--configurator-181717?logo=github&logoColor=white"
+              src="https://img.shields.io/badge/GitHub-signlang--eyes--configurator/special/soc--race-181717?logo=github&logoColor=white"
               alt="GitHub repository"
               class="h-5"
             >
           </a>
           <a
-            href="https://github.com/syxxzzr/signlang-eyes-configurator/blob/main/LICENSE"
+            href="https://github.com/syxxzzr/signlang-eyes-configurator/blob/special/soc-race/LICENSE"
             target="_blank"
             rel="noreferrer"
             aria-label="Apache 2.0 license"
