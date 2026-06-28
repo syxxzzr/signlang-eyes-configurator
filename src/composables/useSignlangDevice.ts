@@ -280,6 +280,11 @@ export function useSignlangDevice() {
       try {
         await client.setStreaming(false)
         streaming.value = false
+        // No frames arrive while paused — drop the last one so the live
+        // preview falls back to its idle state instead of looking frozen.
+        frame.value = null
+        recognition.value = null
+        clearRecognitionExpiry()
       } catch {
         // tolerate — reassembly still routes responses correctly
       }
